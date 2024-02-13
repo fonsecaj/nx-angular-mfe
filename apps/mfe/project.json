@@ -2,7 +2,7 @@
   "name": "mfe",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "nx-angular-mfee",
+  "prefix": "nx-angular-mfe",
   "sourceRoot": "apps/mfe/src",
   "tags": [],
   "targets": {
