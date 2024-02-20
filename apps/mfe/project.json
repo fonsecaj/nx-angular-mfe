@@ -46,6 +46,9 @@
     },
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+        "port": 4600
+      },
       "configurations": {
         "production": {
           "buildTarget": "mfe:build:production"
