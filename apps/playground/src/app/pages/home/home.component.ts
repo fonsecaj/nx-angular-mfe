@@ -3,9 +3,9 @@ import { RouterModule } from '@angular/router';
 
 @Component({
   standalone: true,
+  selector: 'pg-home',
   imports: [RouterModule],
-  selector: 'pg-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss',
 })
-export class AppComponent {}
+export class HomeComponent {}
