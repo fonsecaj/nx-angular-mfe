@@ -1,0 +1,10 @@
+{
+  "/mfe": {
+    "target": "http://localhost:4600",
+    "secure": false,
+    "pathRewrite": {
+      "^/mfe": ""
+    },
+    "logLevel": "debug"
+  }
+}

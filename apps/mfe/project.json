@@ -34,7 +34,7 @@
               "maximumError": "4kb"
             }
           ],
-          "outputHashing": "all"
+          "outputHashing": "media"
         },
         "development": {
           "optimization": false,
@@ -47,6 +47,23 @@
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",
       "options": {
+        "port": 4600
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "mfe:build:production"
+        },
+        "development": {
+          "buildTarget": "mfe:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+
+      "options": {
+        "staticFilePath": "dist/apps/mfe/browser",
         "port": 4600
       },
       "configurations": {
