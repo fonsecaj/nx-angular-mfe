@@ -1,9 +1,9 @@
+import { LazyElementsModule } from '@angular-extensions/elements';
 import { provideHttpClient } from '@angular/common/http';
 import { ApplicationConfig, ENVIRONMENT_INITIALIZER, EnvironmentProviders, NgZone, provideZoneChangeDetection as _provideZoneChangeDetection, importProvidersFrom, inject, isDevMode, makeEnvironmentProviders } from '@angular/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withRouterConfig } from '@angular/router';
 import { appRoutes } from './app.routes';
-import { LazyElementsModule } from '@angular-extensions/elements';
 
 function provideZoneChangeDetection(): EnvironmentProviders {
   return makeEnvironmentProviders([
@@ -25,7 +25,9 @@ function provideZoneChangeDetection(): EnvironmentProviders {
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(appRoutes),
+    provideRouter(appRoutes,
+      withRouterConfig({paramsInheritanceStrategy: 'always'}),  
+    ),
     provideAnimations(),
     provideHttpClient(),
     provideZoneChangeDetection(),
