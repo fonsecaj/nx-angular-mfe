@@ -1,8 +1,8 @@
-import { APP_BASE_HREF } from '@angular/common';
 import { provideHttpClient } from '@angular/common/http';
 import { ApplicationConfig, EnvironmentProviders, NgZone, isDevMode, makeEnvironmentProviders } from '@angular/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { provideRouter, withDebugTracing, withRouterConfig } from '@angular/router';
+import { provideRouter, withRouterConfig } from '@angular/router';
+import { provideMfeLocationStrategy } from '@nx-angular-mfe/router';
 import { appRoutes } from './app.routes';
 
 function provideZoneChangeDetection(): EnvironmentProviders {
@@ -39,10 +39,9 @@ const ngZoneFactory: () => NgZone = () => {
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(appRoutes,
-      withDebugTracing(),
       withRouterConfig({paramsInheritanceStrategy: 'always'}),
     ),
-    { provide: APP_BASE_HREF, useValue: '/feature' },
+    provideMfeLocationStrategy(),
     provideAnimations(),
     provideHttpClient(),
     provideZoneChangeDetection()

@@ -3,6 +3,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { ApplicationConfig, ENVIRONMENT_INITIALIZER, EnvironmentProviders, NgZone, provideZoneChangeDetection as _provideZoneChangeDetection, importProvidersFrom, inject, isDevMode, makeEnvironmentProviders } from '@angular/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter, withRouterConfig } from '@angular/router';
+import { providePlatformLocationStrategy } from '@nx-angular-mfe/router';
 import { appRoutes } from './app.routes';
 
 function provideZoneChangeDetection(): EnvironmentProviders {
@@ -14,7 +15,6 @@ function provideZoneChangeDetection(): EnvironmentProviders {
       useFactory: () => {
         const zone = inject(NgZone);
         return () => {
-          isDevMode() && console.warn('Make zone available on window for MFEs.');
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           (window as any).ngZone = zone;
         };
@@ -26,8 +26,9 @@ function provideZoneChangeDetection(): EnvironmentProviders {
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(appRoutes,
-      withRouterConfig({paramsInheritanceStrategy: 'always'}),  
+      withRouterConfig({paramsInheritanceStrategy: 'always', onSameUrlNavigation: 'reload'}),
     ),
+    providePlatformLocationStrategy(),
     provideAnimations(),
     provideHttpClient(),
     provideZoneChangeDetection(),

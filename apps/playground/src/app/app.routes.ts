@@ -12,5 +12,5 @@ export const appRoutes: Route[] = [
   {
     matcher: matchFeatureRoute,
     loadComponent: () => import('./pages/mfe-shell/mfe-shell.component').then(m => m.MfeShellComponent)
-  }
+  },
 ];

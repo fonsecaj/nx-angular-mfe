@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 
 @Component({
@@ -12,6 +12,6 @@ export class AppComponent implements OnInit {
   private readonly router = inject(Router);
 
   ngOnInit() {
-    this.router.initialNavigation()
+    this.router.initialNavigation();
   }
 }

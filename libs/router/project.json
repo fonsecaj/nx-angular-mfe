@@ -1,0 +1,9 @@
+{
+  "name": "router",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/router/src",
+  "prefix": "nx-angular-mfe",
+  "tags": [],
+  "projectType": "library",
+  "targets": {}
+}
