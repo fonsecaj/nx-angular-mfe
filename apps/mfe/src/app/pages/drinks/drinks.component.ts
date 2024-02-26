@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { fade } from '@nx-angular-mfe/animations';
 
 @Component({
   standalone: true,
@@ -7,5 +8,7 @@ import { RouterModule } from '@angular/router';
   selector: 'mfe-drinks',
   templateUrl: './drinks.component.html',
   styleUrl: './drinks.component.scss',
+  animations: [fade],
+  host: { '[@fade]': '' }
 })
 export class DrinksComponent {}

@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nx-angular-mfe/animations": ["libs/animations/src/index.ts"],
       "@nx-angular-mfe/router": ["libs/router/src/index.ts"],
       "@nx-angular-mfe/zone": ["libs/zone/src/index.ts"]
     }

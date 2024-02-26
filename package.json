@@ -2,7 +2,9 @@
   "name": "@nx-angular-mfe/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "nx run-many -t serve"
+  },
   "private": true,
   "dependencies": {
     "@angular-extensions/elements": "^17.0.0",
