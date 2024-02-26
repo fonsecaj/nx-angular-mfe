@@ -6,19 +6,6 @@ import { MfeLocationStrategy } from './mfe-location-strategy';
 
 declare global {
   interface Window {
-    /**
-     *
-     * Retrieve all event listeners by name.
-     *
-     * This method is optional because it may not be available if you use `noop zone` when
-     * bootstrapping Angular application or disable the `EventTarget` monkey patch by `zone.js`.
-     *
-     * If the `eventName` is provided, will return an array of event handlers or event listener
-     * objects of the given event.
-     * If the `eventName` is not provided, will return all listeners.
-     *
-     * @param router the name of the event, such as click.
-     */
     registerRouter?(router?: Router): {
       unregister: () => void;
     };

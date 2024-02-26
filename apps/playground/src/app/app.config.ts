@@ -1,27 +1,11 @@
 import { LazyElementsModule } from '@angular-extensions/elements';
 import { provideHttpClient } from '@angular/common/http';
-import { ApplicationConfig, ENVIRONMENT_INITIALIZER, EnvironmentProviders, NgZone, provideZoneChangeDetection as _provideZoneChangeDetection, importProvidersFrom, inject, isDevMode, makeEnvironmentProviders } from '@angular/core';
+import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter, withRouterConfig } from '@angular/router';
 import { providePlatformLocationStrategy } from '@nx-angular-mfe/router';
+import { providePlatformZoneChangeDetection } from '@nx-angular-mfe/zone';
 import { appRoutes } from './app.routes';
-
-function provideZoneChangeDetection(): EnvironmentProviders {
-  return makeEnvironmentProviders([
-    _provideZoneChangeDetection(),
-    {
-      provide: ENVIRONMENT_INITIALIZER,
-      multi: true,
-      useFactory: () => {
-        const zone = inject(NgZone);
-        return () => {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (window as any).ngZone = zone;
-        };
-      }
-    },
-  ]);
-}
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -29,9 +13,9 @@ export const appConfig: ApplicationConfig = {
       withRouterConfig({paramsInheritanceStrategy: 'always', onSameUrlNavigation: 'reload'}),
     ),
     providePlatformLocationStrategy(),
+    providePlatformZoneChangeDetection(),
     provideAnimations(),
     provideHttpClient(),
-    provideZoneChangeDetection(),
     importProvidersFrom(
       LazyElementsModule.forRoot({
         elementConfigs: [

@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-angular-mfe/router": ["libs/router/src/index.ts"]
+      "@nx-angular-mfe/router": ["libs/router/src/index.ts"],
+      "@nx-angular-mfe/zone": ["libs/zone/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
